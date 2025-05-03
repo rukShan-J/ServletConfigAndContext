@@ -1,7 +1,8 @@
 
 package MyPackage;
 
-import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletConfig;
+//import jakarta.servlet.ServletContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -18,16 +19,24 @@ public class MyServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.println("Hello ");
         
+        //2
+//        ServletContext ctx = getServletContext(); 
         
-        ServletContext ctx = getServletContext(); 
+//        //3
+//        //Get <context-param> -  <param-name> 
+//        String strN = ctx.getInitParameter("name");     
+//        String strP = ctx.getInitParameter("Phone");
+
+        //5
+        //if have different value for different servlet, good to go for servletConfig
+        ServletConfig cg = getServletConfig();
+        String str = cg.getInitParameter("name");   
+        out.println(str);
         
-        //Get <context-param> -  <param-name> 
-        String strN = ctx.getInitParameter("name");     
-        String strP = ctx.getInitParameter("Phone");
-        
+        //4
         //Print <context-param> -  <param-value>
-        out.println(strN);          
-        out.println(strP);
+//        out.println(strN);          
+//        out.println(strP);
         
     }
 

@@ -3,6 +3,13 @@
     <servlet>
         <servlet-name>MyServlet</servlet-name>
         <servlet-class>MyPackage.MyServlet</servlet-class>
+        
+        <init-param>
+            <!--if have different value for different servlet, good to go for servletConfig-->
+            <param-name>name</param-name>
+            <param-value>Shan</param-value>
+        </init-param>
+        
     </servlet>
     <servlet-mapping>
         <servlet-name>MyServlet</servlet-name>
@@ -10,7 +17,7 @@
     </servlet-mapping>
     
     
-    
+    <!--1-->
     <context-param>
         <param-name>name</param-name>
         <param-value>Rukshan</param-value>
